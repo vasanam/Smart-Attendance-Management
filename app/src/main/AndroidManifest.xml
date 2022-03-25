@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartAttendance">
         <activity
+            android:name=".StudentAttendanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StudentScanBarcodeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StudentClassList"
+            android:exported="false" />
+        <activity
             android:name=".ProfessorSettingsActivity"
             android:exported="false" />
         <activity

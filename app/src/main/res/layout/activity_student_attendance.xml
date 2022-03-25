@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,11 +9,13 @@
     tools:context=".ProfessorDashBoard">
 
     <LinearLayout
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:padding="@dimen/space_10dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
         android:background="@color/colorPrimaryDark"
-        android:layout_height="100dp">
+        android:orientation="vertical"
+        android:padding="@dimen/space_10dp">
 
         <TextView
             android:id="@+id/subLabel"
@@ -30,17 +32,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Student DashBoard"
+            android:text="Attendance.."
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
     </LinearLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/student_menu_rv"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/menu_row"
-        android:padding="@dimen/space_10dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        android:layout_below="@id/toolbar"
+        android:padding="@dimen/space_20dp"
+        android:gravity="center">
 
-</LinearLayout>
+        <com.github.mikephil.charting.charts.PieChart
+            android:layout_width="match_parent"
+            android:id="@+id/pie_chart"
+            android:layout_height="match_parent"
+            android:padding="@dimen/size30dp" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space_20dp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:text="Attendance for the month of  March"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

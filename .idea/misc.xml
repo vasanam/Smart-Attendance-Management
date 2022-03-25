@@ -23,7 +23,10 @@
         <entry key="app/src/main/res/layout/activity_professor_dash_board.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_professor_settings.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_professor_student_list.xml" value="0.18796296296296297" />
+        <entry key="app/src/main/res/layout/activity_student_attendance.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_student_class_list.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_student_dash_board.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_student_scan_barcode.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/add_class_dialog.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/class_list_dialog.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/menu_row.xml" value="0.3098958333333333" />
