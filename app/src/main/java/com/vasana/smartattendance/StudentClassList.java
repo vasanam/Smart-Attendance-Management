@@ -6,10 +6,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.vasana.smartattendance.adapters.MenuRecycleAdapter;
+import com.vasana.smartattendance.models.Student;
+import com.vasana.smartattendance.models.SubjectsItem;
 import com.vasana.smartattendance.pojo.MenuOption;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.security.auth.Subject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,12 +37,9 @@ public class StudentClassList extends AppCompatActivity {
     }
 
     private void configureClassList() {
-        menuOptionList.add(new MenuOption("English class", "Some subject description"));
-        menuOptionList.add(new MenuOption("Math class ", "Some subject description"));
-        menuOptionList.add(new MenuOption("Social ", "Some subject description"));
-        menuOptionList.add(new MenuOption("Computer science class", "Some subject description"));
-        menuOptionList.add(new MenuOption("Quantum Computing class ", "Some subject description"));
-
+        final Student student = (Student) getIntent().getSerializableExtra("student");
+        for (SubjectsItem subject:student.getClassesItem().getSubjects())
+            menuOptionList.add(new MenuOption(subject.getName(),subject.getDescription()));
         classListRv.setAdapter(adapter);
         adapter.setMenuOptionList(menuOptionList);
 

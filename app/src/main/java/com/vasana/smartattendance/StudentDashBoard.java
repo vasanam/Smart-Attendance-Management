@@ -2,10 +2,12 @@ package com.vasana.smartattendance;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vasana.smartattendance.adapters.PrimaryMenuRecycleAdapter;
+import com.vasana.smartattendance.models.Student;
 import com.vasana.smartattendance.pojo.MenuOptionPrimary;
 
 import java.util.ArrayList;
@@ -13,6 +15,9 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class StudentDashBoard extends BaseActivity {
 
@@ -20,6 +25,9 @@ public class StudentDashBoard extends BaseActivity {
     @BindView(R.id.student_menu_rv)
     RecyclerView menuRv;
 
+    @BindView(R.id.label)
+    TextView label;
+    private Student student;
     PrimaryMenuRecycleAdapter adapter = new PrimaryMenuRecycleAdapter();
 
     List<MenuOptionPrimary> menuOptionList = new ArrayList<>();
@@ -30,6 +38,7 @@ public class StudentDashBoard extends BaseActivity {
         setContentView(R.layout.activity_student_dash_board);
         ButterKnife.bind(this);
         configureMenuOptions();
+        fetchStudent();
     }
 
     private void configureMenuOptions() {
@@ -56,16 +65,36 @@ public class StudentDashBoard extends BaseActivity {
                     break;
                 }
                 case 3: {
-                   navigate(ProfessorSettingsActivity.class);
+                    navigate(ProfessorSettingsActivity.class);
                 }
             }
         });
     }
 
 
-    public void navigate(Class destination) {
+    public void navigate(final Class destination) {
         Intent switcher = new Intent(this, destination);
+        switcher.putExtra("from", true);
+        switcher.putExtra("student", student);
         startActivity(switcher);
     }
 
+
+    private void fetchStudent() {
+        showLoading();
+        api.getStudent(redis.getUserId()).enqueue(new Callback<Student>() {
+            @Override
+            public void onResponse(Call<Student> call, Response<Student> response) {
+                hideLoading();
+                student = response.body();
+                label.setText(student.getUserid().getUsername());
+            }
+
+            @Override
+            public void onFailure(Call<Student> call, Throwable t) {
+                shout(t.getMessage());
+                t.printStackTrace();
+            }
+        });
+    }
 }

@@ -2,8 +2,11 @@
 buildscript {
     ext.kotlin_version = '1.6.20-RC'
     repositories {
+        google()
+        maven { url 'https://maven.google.com' }
         mavenCentral()
-            maven { url 'https://jitpack.io' }
+        maven { url 'https://jitpack.io' }
+        jcenter()
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
