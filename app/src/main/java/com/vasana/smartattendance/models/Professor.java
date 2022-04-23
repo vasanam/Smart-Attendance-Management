@@ -1,9 +1,10 @@
 package com.vasana.smartattendance.models;
 
+import java.io.Serializable;
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class Professor{
+public class Professor implements Serializable {
 
 	@SerializedName("classes")
 	private List<ClassesItem> classes;
@@ -15,7 +16,7 @@ public class Professor{
 	private String id;
 
 	@SerializedName("userid")
-	private String userid;
+	private User userid;
 
 	public void setClasses(List<ClassesItem> classes){
 		this.classes = classes;
@@ -41,12 +42,12 @@ public class Professor{
 		return id;
 	}
 
-	public void setUserid(String userid){
-		this.userid = userid;
+	public User getUserid() {
+		return userid;
 	}
 
-	public String getUserid(){
-		return userid;
+	public void setUserid(User userid) {
+		this.userid = userid;
 	}
 
 	@Override

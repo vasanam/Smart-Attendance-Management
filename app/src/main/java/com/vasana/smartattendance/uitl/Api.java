@@ -3,6 +3,7 @@ package com.vasana.smartattendance.uitl;
 
 import com.vasana.smartattendance.models.LoginRequest;
 import com.vasana.smartattendance.models.LoginResponse;
+import com.vasana.smartattendance.models.Professor;
 import com.vasana.smartattendance.models.Student;
 
 import retrofit2.Call;
@@ -17,5 +18,8 @@ public interface Api {
 
     @GET("users/student/{id}")
     Call<Student> getStudent(@Path("id") String userId);
+
+    @GET("users/prof/{id}")
+    Call<Professor> getProfessor(@Path("id") String userId);
 
 }

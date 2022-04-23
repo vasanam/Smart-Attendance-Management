@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="Professor name "
+                android:text="Modify user settings"
                 android:textColor="@color/text_sub"
                 android:textSize="16dp"
                 android:textStyle="bold" />

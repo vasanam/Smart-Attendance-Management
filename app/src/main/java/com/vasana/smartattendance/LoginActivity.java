@@ -29,11 +29,17 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         if (redis.retrieveBoolean(GlobalConstants.RedisConstants.IS_LOGGED_IN, false)) {
-            Intent switcher = new Intent(LoginActivity.this, StudentDashBoard.class);
-            startActivity(switcher);
-            finish();
+            if (redis.retrieveBoolean(GlobalConstants.RedisConstants.IS_STUDENT, false)) {
+                Intent switcher = new Intent(LoginActivity.this, StudentDashBoard.class);
+                startActivity(switcher);
+            } else {
+                Intent switcher = new Intent(LoginActivity.this, ProfessorDashBoard.class);
+                startActivity(switcher);
+            }
         }
+        finish();
     }
+
 
     @OnClick(R.id.login_btn)
     void login() {
@@ -50,12 +56,13 @@ public class LoginActivity extends BaseActivity {
                         redis.setUserId(response.body().getUser().getId());
                         redis.storeItem(GlobalConstants.RedisConstants.IS_LOGGED_IN, true);
 
-                        if (response.body().getUser().getType() == 0){
+                        if (response.body().getUser().getType() == 0) {
+                            redis.storeItem(GlobalConstants.RedisConstants.IS_STUDENT, true);
                             redis.storeItem(GlobalConstants.RedisConstants.STUDENT_ID, response.body().getStudent().getId());
                             Intent switcher = new Intent(LoginActivity.this, StudentDashBoard.class);
                             startActivity(switcher);
-                        }
-                        else{
+                        } else {
+                            redis.storeItem(GlobalConstants.RedisConstants.IS_STUDENT, false);
                             redis.storeItem(GlobalConstants.RedisConstants.PROFESSOR_ID, response.body().getProfessor().getId());
                             Intent switcher = new Intent(LoginActivity.this, ProfessorDashBoard.class);
                             startActivity(switcher);

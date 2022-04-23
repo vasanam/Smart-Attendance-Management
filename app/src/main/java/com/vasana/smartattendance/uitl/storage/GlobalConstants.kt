@@ -8,6 +8,7 @@ object GlobalConstants {
         const val USER_NUMBER = "user_number"
         const val REFRESH_TOKEN = "REFRESH_TOKEN"
         const val IS_LOGGED_IN = "IS_LOGGED_IN"
+        const val IS_STUDENT = "IS_STUDENT"
         const val STUDENT_ID = "STUDENT_ID"
         const val PROFESSOR_ID = "PROFESSOR_ID"
         const val IS_INTRO_DONE = "IS_INTRO_DONE"

@@ -53,6 +53,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:clickable="true"
+        android:visibility="gone"
         android:id="@+id/addClass"
         android:src="@drawable/ic_baseline_add_24"
         android:layout_margin="@dimen/space_10dp"
