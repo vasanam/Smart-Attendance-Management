@@ -38,7 +38,6 @@
         android:textSize="16dp" />
 
 
-
     <EditText
         android:id="@+id/number"
         android:layout_width="match_parent"
@@ -55,7 +54,9 @@
         android:maxLines="1"
         android:padding="15dp"
         android:textSize="16dp"
-        android:textStyle="bold" />
+        android:textStyle="bold" >
+        <requestFocus/>
+    </EditText>
 
     <EditText
         android:id="@+id/password"

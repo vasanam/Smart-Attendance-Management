@@ -71,19 +71,19 @@ public class ProfessorDashBoard extends BaseActivity {
                     startActivity(switcher);
                     break;
                 }
-                case 1: {
+                case 4: {
                     showCLassList(ProfessorStudentList.class);
                     break;
                 }
-                case 2: {
+                case 1: {
                     showCLassList(ProfessorAttendanceList.class);
                     break;
                 }
-                case 3: {
+                case 2: {
                     showCLassList(ProfessorBarCodeGeneratorActivity.class);
                     break;
                 }
-                case 4: {
+                case 3: {
                     Intent switcher = new Intent(this, ProfessorSettingsActivity.class);
                     switcher.putExtra("from", false);
                     switcher.putExtra("prof", professor);
