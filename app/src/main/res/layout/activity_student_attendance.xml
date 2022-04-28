@@ -57,7 +57,7 @@
         android:layout_marginBottom="@dimen/space_20dp"
         android:gravity="center"
         android:layout_alignParentBottom="true"
-        android:text="Attendance for the month of  March"
+        android:text="Attendance graph"
         android:textColor="@color/black"
         android:textSize="18dp"
         android:textStyle="bold" />

@@ -65,6 +65,8 @@ dependencies {
 
     implementation 'com.github.delight-im:Android-AdvancedWebView:v3.2.1'
 
+    implementation 'com.wdullaer:materialdatetimepicker:4.2.3'
+
     implementation 'com.google.zxing:core:3.3.2'
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'

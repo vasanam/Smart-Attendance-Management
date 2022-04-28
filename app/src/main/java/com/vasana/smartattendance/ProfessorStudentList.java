@@ -60,7 +60,7 @@ public class ProfessorStudentList extends AppCompatActivity {
             i++;
         }
         studentListRv.setAdapter(adapter);
-        adapter.setMenuOptionList(menuOptionList);
+//        adapter.setMenuOptionList(menuOptionList);
 
         adapter.setRecyclerClickListener(position -> {
 

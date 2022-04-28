@@ -12,11 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.vasana.smartattendance.R;
 import com.vasana.smartattendance.pojo.MenuOption;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MenuRecycleAdapter extends RecyclerView.Adapter<MenuRecycleAdapter.MyViewHolder> {
 
-    private List<MenuOption> menuOptionList;
+    private List<MenuOption> menuOptionList = new ArrayList<>();
     private RecyclerClickListener recyclerClickListener;
 
     public RecyclerClickListener getRecyclerClickListener() {
@@ -65,6 +66,7 @@ public class MenuRecycleAdapter extends RecyclerView.Adapter<MenuRecycleAdapter.
         holder.title.setText(menuOptionList.get(position).getTitle());
         holder.subTitle.setText(String.valueOf(menuOptionList.get(position).getSubTitle()));
         holder.itemView.setOnClickListener(view -> {
+            if (recyclerClickListener!=null)
             recyclerClickListener.onclick(position);
         });
     }

@@ -14,12 +14,15 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.vasana.smartattendance.adapters.MenuRecycleAdapter;
 import com.vasana.smartattendance.adapters.PrimaryMenuRecycleAdapter;
 import com.vasana.smartattendance.adapters.RecyclerClickListener;
+import com.vasana.smartattendance.models.AttendanceResponseItem;
 import com.vasana.smartattendance.models.ClassesItem;
 import com.vasana.smartattendance.models.Professor;
 import com.vasana.smartattendance.models.Professor;
 import com.vasana.smartattendance.models.SubjectsItem;
 import com.vasana.smartattendance.pojo.MenuOption;
 import com.vasana.smartattendance.pojo.MenuOptionPrimary;
+import com.vasana.smartattendance.pojo.ProfessorAttendanceFilter;
+import com.vasana.smartattendance.pojo.StudentAttendanceFilter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,8 +52,13 @@ public class ProfessorDashBoard extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_professor_dash_board);
         ButterKnife.bind(this);
-        fetchProf();
         configureMenuOptions();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fetchProf();
     }
 
     private void configureMenuOptions() {
@@ -104,6 +112,7 @@ public class ProfessorDashBoard extends BaseActivity {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         View view = LayoutInflater.from(this).inflate(R.layout.class_list_dialog, null);
         RecyclerView list = view.findViewById(R.id.dialog_class_list_rv);
+        classList.clear();
         for (ClassesItem sub : professor.getClasses())
             classList.add(new MenuOption(sub.getName(), ""));
         list.setAdapter(classAdapter);
@@ -132,6 +141,7 @@ public class ProfessorDashBoard extends BaseActivity {
         TextView titleTextView = view.findViewById(R.id.titleTextView);
         titleTextView.setText("Select a subject to continue");
 
+        subList.clear();
         for (SubjectsItem sub : professor.getClasses().get(position).getSubjects())
             subList.add(new MenuOption(sub.getName(), sub.getDescription()));
         list.setAdapter(subAdapter);
@@ -154,7 +164,6 @@ public class ProfessorDashBoard extends BaseActivity {
         dialog.show();
     }
 
-
     private void fetchProf() {
         showLoading();
         api.getProfessor(redis.getUserId()).enqueue(new Callback<Professor>() {
@@ -172,4 +181,6 @@ public class ProfessorDashBoard extends BaseActivity {
             }
         });
     }
+
+
 }

@@ -66,6 +66,7 @@ public class ProfessorClassListActivity extends AppCompatActivity {
         RecyclerView list = view.findViewById(R.id.dialog_class_list_rv);
         TextView titleTextView = view.findViewById(R.id.titleTextView);
         titleTextView.setText("Subject in selected class.");
+        classList.clear();
         for (SubjectsItem sub:professor.getClasses().get(position).getSubjects())
         classList.add(new MenuOption(sub.getName(),sub.getDescription()));
         list.setAdapter(classAdapter);

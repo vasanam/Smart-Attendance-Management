@@ -12,15 +12,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.vasana.smartattendance.R;
+import com.vasana.smartattendance.models.Student;
+import com.vasana.smartattendance.models.StudentAbr;
 import com.vasana.smartattendance.pojo.MenuOption;
 import com.vasana.smartattendance.pojo.StudentPojo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyViewHolder> {
 
-    private List<StudentPojo> studentPojoList;
+    private List<StudentAbr> studentPojoList = new ArrayList<>();
     private RecyclerClickListener recyclerClickListener;
     private Context context;
 
@@ -32,7 +36,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyViewHo
         this.recyclerClickListener = recyclerClickListener;
     }
 
-    public void setMenuOptionList(List<StudentPojo> studentPojoList) {
+    public void setMenuOptionList(List<StudentAbr> studentPojoList) {
         this.studentPojoList = studentPojoList;
         notifyDataSetChanged();
     }
@@ -72,12 +76,15 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull StudentAdapter.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.title.setText(studentPojoList.get(position).getTitle());
-        holder.subTitle.setText("Id : Student id.");
-        Glide.with(holder.itemView.
-                getContext()).load(studentPojoList.get(position).getDp()).into(holder.dp);
+        holder.title.setText(studentPojoList.get(position).getUserid().getUsername());
+        holder.subTitle.setText(studentPojoList.get(position).getUserid().getStatus());
+        Glide.with(holder.itemView.getContext())
+                .load(studentPojoList.get(position).getUserid().getDp())
+                .apply(RequestOptions.placeholderOf(R.drawable.ic_baseline_account_circle_24).error(R.drawable.ic_baseline_account_circle_24))
+                .into(holder.dp);
         holder.itemView.setOnClickListener(view -> {
-            recyclerClickListener.onclick(position);
+            if (recyclerClickListener != null)
+                recyclerClickListener.onclick(position);
         });
     }
 

@@ -77,6 +77,7 @@ public class LoginActivity extends BaseActivity {
                 @Override
                 public void onFailure(Call<LoginResponse> call, Throwable t) {
                     shout(t.getMessage());
+                    t.printStackTrace();
                 }
             });
         }

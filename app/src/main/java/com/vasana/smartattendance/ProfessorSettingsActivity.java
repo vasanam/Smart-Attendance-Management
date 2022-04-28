@@ -63,7 +63,7 @@ public class ProfessorSettingsActivity extends BaseActivity {
             student = (Student) getIntent().getSerializableExtra("student");
             user = student.getUserid();
             textView.setText(student.getUserid().getUsername());
-            statusTv.setText(student.getUserid().getStatus() == null ? "--" : student.getUserid().getStatus());
+            statusTv.setText((student.getUserid().getStatus() == null) ? "--" : student.getUserid().getStatus());
             updateStatus.setText(student.getUserid().getStatus() == null ? "Update status" : student.getUserid().getStatus());
             updateNumber.setText(student.getUserid().getMobile() == null ? "update number" : student.getUserid().getMobile());
 
@@ -71,9 +71,9 @@ public class ProfessorSettingsActivity extends BaseActivity {
             professor = (Professor) getIntent().getSerializableExtra("prof");
             textView.setText(professor.getUserid().getUsername());
             user = professor.getUserid();
-            statusTv.setText(professor.getUserid().getStatus() == null ? professor.getUserid().getStatus() : "--");
-            updateStatus.setText(professor.getUserid().getStatus() == null ? professor.getUserid().getStatus() : "--");
-            updateNumber.setText(professor.getUserid().getMobile() == null ? professor.getUserid().getMobile() : "--");
+            statusTv.setText((professor.getUserid().getStatus() == null) ? "--" : professor.getUserid().getStatus());
+            updateStatus.setText(professor.getUserid().getStatus() == null ? "Update status" : professor.getUserid().getStatus());
+            updateNumber.setText(professor.getUserid().getMobile() == null ? "update number" : professor.getUserid().getMobile());
         }
 
         updateNumber.setOnClickListener(view -> updateMobileNumber());
@@ -157,7 +157,7 @@ public class ProfessorSettingsActivity extends BaseActivity {
     @OnClick(R.id.customerCare)
     void cc() {
         Intent callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setData(Uri.parse("tel:"+"+18166898784"));
+        callIntent.setData(Uri.parse("tel:" + "+18166898784"));
         startActivity(callIntent);
     }
 }
