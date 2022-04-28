@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/size30dp">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        style="@style/TextContentBold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Update user details."
+        android:textSize="@dimen/space_20dp"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/size15dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/size15dp"
+        android:paddingRight="@dimen/size15dp">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center|top"
+            android:layout_marginLeft="@dimen/size15dp"
+            android:layout_marginTop="@dimen/space_20dp"
+            android:layout_marginRight="@dimen/size15dp"
+            android:background="@drawable/ring"
+            android:padding="@dimen/space_20dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/descriptionTextView"
+            style="@style/bottomSheetDescriptionTooltip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/size15dp"
+            android:gravity="center_vertical"
+            android:text="Description"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bodyView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/space_20dp"
+        android:layout_marginRight="@dimen/space_20dp"
+        android:layout_marginBottom="@dimen/size0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/login_username_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:theme="@style/fab">
+
+            <EditText
+                android:id="@+id/numner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/et_bg"
+                android:hint="Mobile number"
+                android:inputType="number"
+                android:maxLength="10"
+                android:textStyle="bold"
+                android:padding="@dimen/space_10dp"
+                android:textColor="@color/text"
+                android:textColorHint="@color/text_sub" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/login_password_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/fab">
+
+            <EditText
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/et_bg"
+                android:hint="Status"
+                android:textStyle="bold"
+                android:padding="@dimen/space_10dp"
+                android:textColor="@color/text"
+                android:textColorHint="@color/text_sub" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/primaryButton"
+        style="@style/PrimaryButton"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/size0dp"
+        android:layout_marginBottom="@dimen/size15dp"
+        android:text="Update"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/secondaryButton"
+        style="@style/SecondaryButton"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/size0dp"
+        android:layout_marginBottom="@dimen/size15dp"
+        android:text="Cancel"
+        android:textColor="@color/text_sub"
+        android:visibility="visible" />
+</LinearLayout>

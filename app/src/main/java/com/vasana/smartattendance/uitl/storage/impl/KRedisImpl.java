@@ -5,6 +5,9 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.google.gson.Gson;
+import com.vasana.smartattendance.models.Professor;
+import com.vasana.smartattendance.models.Student;
 import com.vasana.smartattendance.uitl.storage.GlobalConstants;
 import com.vasana.smartattendance.uitl.storage.base.KRedis;
 
@@ -17,6 +20,8 @@ import timber.log.Timber;
 public class KRedisImpl implements KRedis {
 
     private SharedPreferences mStore;
+    private Gson gson = new Gson();
+
 
     public KRedisImpl(SharedPreferences mSharedPreferences) {
         this.mStore = mSharedPreferences;
@@ -161,6 +166,29 @@ public class KRedisImpl implements KRedis {
     public void setAccessToken(String accessToken) {
         storeItem(GlobalConstants.RedisConstants.ACCESS_TOKEN, accessToken);
     }
+
+    @Override
+    public void setUser(Student student) {
+        storeItem("stud", gson.toJson(student));
+    }
+
+    @Override
+    public void setProfessor(Professor professor) {
+        storeItem("prof", gson.toJson(professor));
+
+    }
+
+    @Override
+    public Student getStudent() {
+        return gson.fromJson(retrieveString("stud", ""), Student.class);
+    }
+
+    @Override
+    public Professor getProfessor() {
+        return gson.fromJson(retrieveString("prof", ""), Professor.class);
+
+    }
+
     @Override
     public String getUserId() {
         return mStore.getString(GlobalConstants.RedisConstants.USER_ID, "");
@@ -170,29 +198,6 @@ public class KRedisImpl implements KRedis {
     public void setUserId(String accessToken) {
         storeItem(GlobalConstants.RedisConstants.USER_ID, accessToken);
     }
-
-    @Override
-    public String getFcmAccessToken() {
-        return mStore.getString(GlobalConstants.RedisConstants.FCM_META, "");
-    }
-
-    @Override
-    public void setFCmAccessToken(String fCmAccessToken) {
-        storeItem(GlobalConstants.RedisConstants.FCM_META, fCmAccessToken);
-    }
-
-    @Override
-    public String getWeatherAccessToken() {
-        Log.e("redis get", "kk"+mStore.getString(GlobalConstants.RedisConstants.WEATHER_META, ""));
-        return mStore.getString(GlobalConstants.RedisConstants.WEATHER_META, "");
-    }
-
-    @Override
-    public void setWeatherAccessToken(String fCmAccessToken) {
-        storeItem(GlobalConstants.RedisConstants.WEATHER_META, fCmAccessToken);
-        Log.e("redis", "kk"+fCmAccessToken);
-    }
-
 
 
 }

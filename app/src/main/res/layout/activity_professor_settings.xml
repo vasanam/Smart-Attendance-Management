@@ -13,11 +13,12 @@
         android:gravity="center_horizontal"
         android:orientation="vertical"
         tools:context=".ui.dashboard.profile.ProfileFragment">
+
         <LinearLayout
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_alignParentTop="true"
-            android:id="@+id/toolbar"
             android:background="@color/colorPrimaryDark"
             android:orientation="vertical"
             android:padding="@dimen/space_10dp">
@@ -75,14 +76,14 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
-                    android:src="@drawable/teju"
                     android:background="@drawable/ring_white"
                     android:elevation="5dp"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/teju" />
 
                 <TextView
-                    android:layout_width="80dp"
                     android:id="@+id/dp_label"
+                    android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_centerInParent="true"
                     android:background="@drawable/ring_black"
@@ -106,6 +107,7 @@
                     android:elevation="6dp"
                     android:padding="5dp"
                     android:src="@drawable/ic_baseline_camera_alt_24"
+                    android:visibility="gone"
                     app:tint="@color/colorPrimaryDark" />
             </RelativeLayout>
 
@@ -121,16 +123,17 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:text="Professor name"
-                        android:id="@+id/name"
                         android:textColor="@color/black"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/statusTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
@@ -145,26 +148,26 @@
 
 
         <TextView
-            android:id="@+id/myordersBtn"
+            android:id="@+id/updateNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
             android:background="@color/white"
-            android:drawableRight="@drawable/ic_baseline_keyboard_arrow_right_24"
+            android:drawableRight="@drawable/ic_baseline_edit_24"
             android:drawableTint="@color/black"
             android:foreground="?android:attr/selectableItemBackgroundBorderless"
             android:padding="17dp"
+            android:text="Update Mobile number"
             android:textColor="@color/black"
-            android:text="Update name"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/cropCalender"
+            android:id="@+id/updateStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
             android:background="@color/white"
-            android:drawableRight="@drawable/ic_baseline_keyboard_arrow_right_24"
+            android:drawableRight="@drawable/ic_baseline_edit_24"
             android:drawableTint="@color/black"
             android:fontFamily="@font/quicksand_regular"
             android:foreground="?android:attr/selectableItemBackgroundBorderless"
@@ -174,14 +177,11 @@
             android:textStyle="bold" />
 
 
-
-
         <TextView
             android:id="@+id/aboutBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
-            android:visibility="gone"
             android:background="@color/white"
             android:drawableRight="@drawable/ic_baseline_keyboard_arrow_right_24"
             android:drawableTint="@color/black"
@@ -189,7 +189,8 @@
             android:foreground="?android:attr/selectableItemBackgroundBorderless"
             android:padding="17dp"
             android:text="About"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/termsAndConditions"
@@ -203,13 +204,12 @@
             android:fontFamily="@font/quicksand_regular"
             android:foreground="?android:attr/selectableItemBackgroundBorderless"
             android:padding="17dp"
-            android:textColor="@color/black"
             android:text="Terms of service"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/privacyPolicy"
-            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
@@ -220,6 +220,7 @@
             android:foreground="?android:attr/selectableItemBackgroundBorderless"
             android:padding="17dp"
             android:text="Privacy Policy"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
         <TextView
@@ -233,9 +234,10 @@
             android:fontFamily="@font/quicksand_regular"
             android:foreground="?android:attr/selectableItemBackgroundBorderless"
             android:padding="17dp"
-            android:textColor="@color/black"
             android:text="Contact support"
+            android:textColor="@color/black"
             android:textStyle="bold" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -246,9 +248,10 @@
             android:fontFamily="@font/quicksand_regular"
             android:foreground="?android:attr/selectableItemBackgroundBorderless"
             android:padding="17dp"
-            android:textColor="@color/black"
             android:text="Report a bug"
-            android:textStyle="bold" />
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/logout"
@@ -262,8 +265,8 @@
             android:fontFamily="@font/quicksand_regular"
             android:foreground="?android:attr/selectableItemBackgroundBorderless"
             android:padding="17dp"
-            android:textColor="@color/red"
             android:text="Logout"
+            android:textColor="@color/red"
             android:textStyle="bold" />
 
 

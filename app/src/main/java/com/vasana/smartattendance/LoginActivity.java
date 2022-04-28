@@ -21,7 +21,6 @@ public class LoginActivity extends BaseActivity {
     EditText numberEt;
     @BindView(R.id.password)
     EditText passwordEt;
-    private final Validator validator = new Validator();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +35,9 @@ public class LoginActivity extends BaseActivity {
                 Intent switcher = new Intent(LoginActivity.this, ProfessorDashBoard.class);
                 startActivity(switcher);
             }
+            finish();
         }
-        finish();
+
     }
 
 
@@ -58,11 +58,13 @@ public class LoginActivity extends BaseActivity {
 
                         if (response.body().getUser().getType() == 0) {
                             redis.storeItem(GlobalConstants.RedisConstants.IS_STUDENT, true);
+                            redis.setUser(response.body().getStudent());
                             redis.storeItem(GlobalConstants.RedisConstants.STUDENT_ID, response.body().getStudent().getId());
                             Intent switcher = new Intent(LoginActivity.this, StudentDashBoard.class);
                             startActivity(switcher);
                         } else {
                             redis.storeItem(GlobalConstants.RedisConstants.IS_STUDENT, false);
+                            redis.setProfessor(response.body().getProfessor());
                             redis.storeItem(GlobalConstants.RedisConstants.PROFESSOR_ID, response.body().getProfessor().getId());
                             Intent switcher = new Intent(LoginActivity.this, ProfessorDashBoard.class);
                             startActivity(switcher);

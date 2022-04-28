@@ -1,5 +1,9 @@
 package com.vasana.smartattendance.uitl.storage.base;
 
+import com.vasana.smartattendance.models.Professor;
+import com.vasana.smartattendance.models.Student;
+import com.vasana.smartattendance.models.User;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -62,11 +66,14 @@ public interface KRedis {
 
     void setAccessToken(String accessToken);
 
-    String getFcmAccessToken();
 
-    void setFCmAccessToken(String fCmAccessToken);
 
-    String getWeatherAccessToken();
+    void setUser(Student student);
 
-    void setWeatherAccessToken(String fCmAccessToken);
+    void setProfessor(Professor professor);
+
+    Student getStudent();
+
+    Professor getProfessor();
+
 }

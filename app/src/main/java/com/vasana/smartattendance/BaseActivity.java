@@ -16,12 +16,15 @@ public class BaseActivity extends AppCompatActivity {
     public KRedis redis;
 
     private KProgressHUD progressHUD;
+    Validator validator = new Validator();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+
         api = RetrofitInstance.getRetrofitInstance().create(Api.class);
+
         redis = RedisProvider.getRedis(this);
 
         progressHUD = KProgressHUD.create(this)

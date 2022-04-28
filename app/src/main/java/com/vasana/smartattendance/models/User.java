@@ -4,96 +4,128 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class User  implements Serializable {
+public class User implements Serializable {
 
-	@SerializedName("createdAt")
-	private String createdAt;
+    @SerializedName("createdAt")
+    private String createdAt;
 
-	@SerializedName("password")
-	private String password;
+    @SerializedName("password")
+    private String password;
 
-	@SerializedName("__v")
-	private int V;
+    @SerializedName("__v")
+    private int V;
 
-	@SerializedName("_id")
-	private String id;
+    @SerializedName("_id")
+    private String id;
 
-	@SerializedName("type")
-	private int type;
+    @SerializedName("type")
+    private int type;
 
-	@SerializedName("username")
-	private String username;
+    @SerializedName("username")
+    private String username;
+    @SerializedName("mobile")
+    private String mobile;
+    @SerializedName("status")
+    private String status;
+    @SerializedName("dp")
+    private String dp;
 
-	@SerializedName("updatedAt")
-	private String updatedAt;
+    public String getMobile() {
+        return mobile;
+    }
 
-	public void setCreatedAt(String createdAt){
-		this.createdAt = createdAt;
-	}
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
 
-	public String getCreatedAt(){
-		return createdAt;
-	}
+    public String getStatus() {
+        return status;
+    }
 
-	public void setPassword(String password){
-		this.password = password;
-	}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-	public String getPassword(){
-		return password;
-	}
+    public String getDp() {
+        return dp;
+    }
 
-	public void setV(int V){
-		this.V = V;
-	}
+    public void setDp(String dp) {
+        this.dp = dp;
+    }
 
-	public int getV(){
-		return V;
-	}
+    @SerializedName("updatedAt")
+    private String updatedAt;
 
-	public void setId(String id){
-		this.id = id;
-	}
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
 
-	public String getId(){
-		return id;
-	}
+    public String getCreatedAt() {
+        return createdAt;
+    }
 
-	public void setType(int type){
-		this.type = type;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public int getType(){
-		return type;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setUsername(String username){
-		this.username = username;
-	}
+    public void setV(int V) {
+        this.V = V;
+    }
 
-	public String getUsername(){
-		return username;
-	}
+    public int getV() {
+        return V;
+    }
 
-	public void setUpdatedAt(String updatedAt){
-		this.updatedAt = updatedAt;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getUpdatedAt(){
-		return updatedAt;
-	}
+    public String getId() {
+        return id;
+    }
 
-	@Override
- 	public String toString(){
-		return 
-			"User{" + 
-			"createdAt = '" + createdAt + '\'' + 
-			",password = '" + password + '\'' + 
-			",__v = '" + V + '\'' + 
-			",_id = '" + id + '\'' + 
-			",type = '" + type + '\'' + 
-			",username = '" + username + '\'' + 
-			",updatedAt = '" + updatedAt + '\'' + 
-			"}";
-		}
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "createdAt='" + createdAt + '\'' +
+                ", password='" + password + '\'' +
+                ", V=" + V +
+                ", id='" + id + '\'' +
+                ", type=" + type +
+                ", username='" + username + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", status='" + status + '\'' +
+                ", dp='" + dp + '\'' +
+                ", updatedAt='" + updatedAt + '\'' +
+                '}';
+    }
 }
