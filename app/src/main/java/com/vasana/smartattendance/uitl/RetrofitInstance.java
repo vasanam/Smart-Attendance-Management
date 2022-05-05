@@ -8,7 +8,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitInstance {
 
     private static Retrofit retrofit;
-    private static final String BASE_URL = "https://pure-crag-43178.herokuapp.com/";
+//    private static final String BASE_URL = "https://pure-crag-43178.herokuapp.com/";
+    private static final String BASE_URL = "https://samsandroid.herokuapp.com/";
 
     /**
      * Create an instance of a Retrofit object

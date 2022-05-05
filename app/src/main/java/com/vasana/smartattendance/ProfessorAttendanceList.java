@@ -70,7 +70,7 @@ public class ProfessorAttendanceList extends BaseActivity implements DatePickerD
             dpd.show(getSupportFragmentManager(), "Datepickerdialog");
         });
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("d-M-yyyy");
         Date date = new Date();
         attendance(formatter.format(date));
     }
